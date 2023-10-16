@@ -238,6 +238,7 @@ Solarized.load = function()
   hi(0, "@tag", { fg = colors.blue, bold = true })
   hi(0, "@tag.attribute", { fg = colors.fg0, italic = true })
   hi(0, "@tag.delimiter", { fg = colors.fg1 })
+  hi(0, "@lsp.type.property", { italic = true })
 
   vim.g.terminal_color_0 = Solarized.palette.base02
   vim.g.terminal_color_1 = Solarized.palette.red
@@ -258,7 +259,5 @@ Solarized.load = function()
   vim.g.terminal_color_background = colors.bg0
   vim.g.terminal_color_foreground = colors.fg0
 end
-
-Solarized.load()
 
 return Solarized
