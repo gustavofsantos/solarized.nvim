@@ -38,6 +38,9 @@ Solarized.get_colors = function()
       blue = Solarized.palette.blue,
       cyan = Solarized.palette.cyan,
       green = Solarized.palette.green,
+      red_bg = "#F6CABB",
+      yellow_bg = "#EDDEB1",
+      green_bg = "#E2E1B1",
       none = "NONE",
     },
     dark = {
@@ -54,6 +57,9 @@ Solarized.get_colors = function()
       blue = Solarized.palette.blue,
       cyan = Solarized.palette.cyan,
       green = Solarized.palette.green,
+      red_bg = "#312D34",
+      yellow_bg = "#344627",
+      green_bg = "#264A27",
       none = "NONE",
     },
   }
@@ -94,11 +100,11 @@ Solarized.load = function()
   hi(0, "lCursor", { link = "Cursor" })
   hi(0, "LineNr", { fg = colors.fg1 })
   hi(0, "Directory", { fg = colors.blue, bold = true })
-  hi(0, "DiffAdd", { fg = colors.green, bg = colors.none })
-  hi(0, "DiffChange", { fg = colors.yellow, bg = colors.none })
-  hi(0, "DiffDelete", { fg = colors.red, bg = colors.none })
+  hi(0, "DiffAdd", { fg = colors.green, bg = colors.green_bg })
+  hi(0, "DiffChange", { fg = colors.yellow, bg = colors.yellow_bg })
+  hi(0, "DiffDelete", { fg = colors.red, bg = colors.red_bg })
   hi(0, "DiffText", { fg = colors.blue, bg = colors.none })
-  hi(0, "ErrorMsg", { fg = colors.red, bg = colors.none })
+  hi(0, "ErrorMsg", { fg = colors.red, bg = colors.red_bg })
   hi(0, "Folded", { fg = colors.fg0, bg = colors.bg1, italic = true })
   hi(0, "FoldColumn", { fg = colors.fg0, bg = colors.bg1 })
   hi(0, "IncSearch", { reverse = true })
@@ -202,6 +208,14 @@ Solarized.load = function()
   hi(0, "DiagnosticUnderlineWarn", { fg = colors.yellow, undercurl = true, sp = colors.yellow })
   hi(0, "DiagnosticUnderlineInfo", { fg = colors.blue, undercurl = true, sp = colors.blue })
   hi(0, "DiagnosticUnderlineHint", { fg = colors.fg3, undercurl = true, sp = colors.cyan })
+  hi(0, "DiagnosticVirtualTextError", { fg = colors.red, bg = colors.red_bg, blend = 50 })
+  hi(0, "DiagnosticVirtualTextInfo", { fg = colors.blue, undercurl = true, sp = colors.blue })
+  hi(
+    0,
+    "DiagnosticVirtualTextWarn",
+    { fg = colors.yellow, bg = colors.yellow_bg, undercurl = true, sp = colors.yellow }
+  )
+  hi(0, "DiagnosticVirtualTextHint", { fg = colors.fg3, undercurl = true, sp = colors.cyan })
 
   -- GitSigns
   hi(0, "GitSignsAdd", { fg = colors.green })
@@ -244,5 +258,7 @@ Solarized.load = function()
   vim.g.terminal_color_background = colors.bg0
   vim.g.terminal_color_foreground = colors.fg0
 end
+
+Solarized.load()
 
 return Solarized
