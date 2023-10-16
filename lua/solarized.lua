@@ -59,7 +59,7 @@ Solarized.get_colors = function()
       green = Solarized.palette.green,
       red_bg = "#312D34",
       yellow_bg = "#344627",
-      green_bg = "#264A27",
+      green_bg = "#0F3730",
       none = "NONE",
     },
   }
@@ -227,6 +227,11 @@ Solarized.load = function()
   hi(0, "GitSignsDelete", { fg = colors.red })
   hi(0, "GitSignsDeleteNr", { fg = colors.red })
   hi(0, "GitSignsDeleteLn", { fg = colors.red })
+
+  -- Fugitive
+  hi(0, "diffAdded", { fg = colors.green, bg = colors.green_bg })
+  hi(0, "diffRemoved", { fg = colors.red, bg = colors.red_bg })
+  hi(0, "diffChanged", { fg = colors.yellow, bg = colors.yellow_bg })
 
   -- LSP
   hi(0, "LspReferenceRead", { fg = colors.yellow, bold = true })
