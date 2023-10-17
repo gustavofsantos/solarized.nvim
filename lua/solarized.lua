@@ -254,7 +254,6 @@ Solarized.load = function()
 
   -- Semantic tokens
   hi(0, "@lsp.type.property", { italic = true })
-  hi(0, "")
 
   vim.g.terminal_color_0 = Solarized.palette.base02
   vim.g.terminal_color_1 = Solarized.palette.red
