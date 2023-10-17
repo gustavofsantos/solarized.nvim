@@ -180,7 +180,7 @@ Solarized.load = function()
   hi(0, "Define", { fg = colors.orange })
   hi(0, "Macro", { fg = colors.orange })
   hi(0, "PreCondit", { fg = colors.orange })
-  hi(0, "Special", { fg = colors.red, bold = true })
+  hi(0, "Special", { fg = colors.fg3, bold = true })
   hi(0, "SpecialChar", { fg = colors.red })
   hi(0, "Tag", { fg = colors.red })
   hi(0, "SpecialComment", { fg = colors.red })
@@ -191,13 +191,19 @@ Solarized.load = function()
   hi(0, "Todo", { fg = colors.magenta, bold = true, italic = true })
 
   -- Telescope
-  hi(0, "TelescopeSelectionCaret", { fg = colors.yellow })
-  hi(0, "TelescopeBorder", { fg = colors.fg1, bg = colors.bg1 })
-  hi(0, "TelescopePromptBorder", { fg = colors.fg1, bg = colors.bg1 })
-  hi(0, "TelescopeResultsBorder", { fg = colors.fg1, bg = colors.bg1 })
-  hi(0, "TelescopePreviewBorder", { fg = colors.fg1, bg = colors.bg1 })
+  hi(0, "TelescopeNormal", { fg = colors.fg0, bg = colors.bg1 })
   hi(0, "TelescopeMatching", { fg = colors.bg0, bg = colors.yellow })
+  hi(0, "TelescopeBorder", { fg = colors.bg1, bg = colors.bg1 })
+  hi(0, "TelescopePromptNormal", { fg = colors.fg0, bg = colors.bg1 })
+  hi(0, "TelescopePromptBorder", { fg = colors.bg1, bg = colors.bg1 })
   hi(0, "TelescopePromptPrefix", { fg = colors.fg0, bg = colors.bg1 })
+  hi(0, "TelescopePromptTitle", { fg = colors.fg0, bg = colors.bg1 })
+  hi(0, "TelescopeSelection", { bg = colors.yellow_bg })
+  hi(0, "TelescopeSelectionCaret", { fg = colors.yellow, bg = colors.yellow_bg })
+  hi(0, "TelescopeResultsTitle", { fg = colors.fg3, bg = colors.bg1 })
+  hi(0, "TelescopeResultsBorder", { fg = colors.bg1, bg = colors.bg1 })
+  hi(0, "TelescopePreviewBorder", { fg = colors.fg1, bg = colors.bg1 })
+  hi(0, "TelescopePreviewTitle", { fg = colors.fg1, bg = colors.bg1 })
 
   -- Fidget
   hi(0, "FidgetTitle", { link = "Title" })
@@ -247,7 +253,10 @@ Solarized.load = function()
   hi(0, "@tag", { fg = colors.blue, bold = true })
   hi(0, "@tag.attribute", { fg = colors.fg0, italic = true })
   hi(0, "@tag.delimiter", { fg = colors.fg1 })
+
+  -- Semantic tokens
   hi(0, "@lsp.type.property", { italic = true })
+  hi(0, "")
 
   vim.g.terminal_color_0 = Solarized.palette.base02
   vim.g.terminal_color_1 = Solarized.palette.red
@@ -267,6 +276,10 @@ Solarized.load = function()
   vim.g.terminal_color_15 = Solarized.palette.base3
   vim.g.terminal_color_background = colors.bg0
   vim.g.terminal_color_foreground = colors.fg0
+end
+
+Solarized.setup = function()
+  Solarized.load()
 end
 
 return Solarized
