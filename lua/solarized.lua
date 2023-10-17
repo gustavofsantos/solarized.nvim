@@ -1,6 +1,4 @@
-local Solarized = {
-  name = "solarized",
-}
+local Solarized = {}
 
 Solarized.palette = {
   base04 = "#001217",
@@ -279,6 +277,8 @@ Solarized.load = function()
 end
 
 Solarized.setup = function()
+  vim.g.color_name = "solarized"
+
   Solarized.load()
 end
 
