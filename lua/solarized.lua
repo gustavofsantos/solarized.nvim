@@ -284,6 +284,9 @@ Solarized.load = function()
   hi(0, "@tag.delimiter", { fg = colors.fg1 })
   hi(0, "@constructor", { fg = colors.blue })
   hi(0, "@punctuation.string.delimiter", { fg = colors.red, bg = colors.none, nocombine = true })
+  hi(0, "@include.javascript", { fg = colors.fg1, italic = true })
+  hi(0, "@include.source.javascript", { fg = colors.fg1, italic = true })
+  hi(0, "@include.identifier.javascript", { fg = colors.fg3, italic = false })
 
   -- Semantic tokens
   hi(0, "@lsp.type.property", { italic = true })
