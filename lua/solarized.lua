@@ -18,6 +18,8 @@ Solarized.palette = {
   violet = "#6c71c4",
   blue = "#268bd2",
   cyan = "#2aa198",
+  cyan_darker = "#156667",
+  cyan_lighter = "#b5d9c9",
   green = "#859900",
 }
 
@@ -42,6 +44,7 @@ Solarized.get_colors = function()
       red_bg = "#F6CABB",
       yellow_bg = "#EDDEB1",
       green_bg = "#E2E1B1",
+      string_delimiter = Solarized.palette.cyan_lighter,
       none = "NONE",
     },
     dark = {
@@ -62,6 +65,7 @@ Solarized.get_colors = function()
       red_bg = "#312D34",
       yellow_bg = "#344627",
       green_bg = "#0F3730",
+      string_delimiter = Solarized.palette.cyan_darker,
       none = "NONE",
     },
   }
@@ -236,6 +240,13 @@ Solarized.load = function()
   hi(0, "GitSignsDeleteNr", { fg = colors.red })
   hi(0, "GitSignsDeleteLn", { fg = colors.red })
 
+  -- Flash
+  hi(0, "FlashBackdrop", { fg = colors.fg1, bg = colors.bg2 })
+  hi(0, "FlashMatch", { fg = colors.bg0, bg = colors.magenta })
+  hi(0, "FlashCurrent", { fg = colors.bg0, bg = colors.blue })
+  hi(0, "FlashLabel", { fg = colors.yellow, bg = colors.yellow_bg })
+  hi(0, "FlashCursor", { fg = colors.bg0, bg = colors.yellow })
+
   -- Fugitive
   hi(0, "diffAdded", { fg = colors.green, bg = colors.green_bg })
   hi(0, "diffRemoved", { fg = colors.red, bg = colors.red_bg })
@@ -283,7 +294,7 @@ Solarized.load = function()
   hi(0, "@tag.attribute", { fg = colors.fg0, italic = true })
   hi(0, "@tag.delimiter", { fg = colors.fg1 })
   hi(0, "@constructor", { fg = colors.blue })
-  hi(0, "@punctuation.string.delimiter", { fg = colors.red, bg = colors.none, nocombine = true })
+  hi(0, "@punctuation.string.delimiter", { fg = colors.string_delimiter, bg = colors.none, nocombine = true })
   hi(0, "@include.javascript", { fg = colors.fg1, italic = true })
   hi(0, "@include.source.javascript", { fg = colors.fg0, italic = true })
   hi(0, "@include.identifier.javascript", { fg = colors.fg3, italic = false })
