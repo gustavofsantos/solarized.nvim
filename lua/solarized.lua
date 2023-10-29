@@ -1,10 +1,8 @@
+local utils = require("utils")
+
 local Solarized = {}
 
 Solarized.palette = {
-  -- extra base colors
-  base04 = "#001217",
-  base4 = "#fdf6e3",
-
   base03 = "#002b36",
   base02 = "#073642",
   base01 = "#586e75",
@@ -21,17 +19,24 @@ Solarized.palette = {
   blue = "#268bd2",
   cyan = "#2aa198",
   green = "#859900",
-
-  -- extra offset colors
-  yellow_bg_darker = "#344627",
-  yellow_bg_lighter = "#EDDEB1",
-  red_bg_darker = "#312D34",
-  red_bg_lighter = "#F6CABB",
-  cyan_darker = "#156667",
-  cyan_lighter = "#b5d9c9",
-  green_bg_lighter = "#E2E1B1",
-  green_bg_darker = "#0F3730",
 }
+
+local blend_with_dark_bg = utils.mix_with(Solarized.palette.base03)
+local blend_with_light_bg = utils.mix_with(Solarized.palette.base3)
+
+-- extra base colors
+Solarized.palette.base04 = "#001217"
+Solarized.palette.base4 = "#fdf6e3"
+
+-- extra offset colors
+Solarized.palette.yellow_bg_darker = blend_with_dark_bg(Solarized.palette.yellow, 0.7)
+Solarized.palette.yellow_bg_lighter = blend_with_light_bg(Solarized.palette.yellow, 0.7)
+Solarized.palette.red_bg_darker = blend_with_dark_bg(Solarized.palette.red, 0.8)
+Solarized.palette.red_bg_lighter = blend_with_light_bg(Solarized.palette.red, 0.7)
+Solarized.palette.cyan_darker = blend_with_dark_bg(Solarized.palette.cyan, 0.4)
+Solarized.palette.cyan_lighter = blend_with_light_bg(Solarized.palette.cyan, 0.4)
+Solarized.palette.green_bg_darker = blend_with_dark_bg(Solarized.palette.green, 0.85)
+Solarized.palette.green_bg_lighter = blend_with_light_bg(Solarized.palette.green, 0.7)
 
 Solarized.get_colors = function()
   local bg = vim.o.background
