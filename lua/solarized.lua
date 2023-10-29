@@ -1,7 +1,10 @@
 local Solarized = {}
 
 Solarized.palette = {
+  -- extra base colors
   base04 = "#001217",
+  base4 = "#fdf6e3",
+
   base03 = "#002b36",
   base02 = "#073642",
   base01 = "#586e75",
@@ -10,7 +13,6 @@ Solarized.palette = {
   base1 = "#93a1a1",
   base2 = "#eee8d5",
   base3 = "#fdf6e3",
-  base4 = "#fdf6e3",
   yellow = "#b58900",
   orange = "#cb4b16",
   red = "#dc322f",
@@ -18,9 +20,17 @@ Solarized.palette = {
   violet = "#6c71c4",
   blue = "#268bd2",
   cyan = "#2aa198",
+  green = "#859900",
+
+  -- extra offset colors
+  yellow_bg_darker = "#344627",
+  yellow_bg_lighter = "#EDDEB1",
+  red_bg_darker = "#312D34",
+  red_bg_lighter = "#F6CABB",
   cyan_darker = "#156667",
   cyan_lighter = "#b5d9c9",
-  green = "#859900",
+  green_bg_lighter = "#E2E1B1",
+  green_bg_darker = "#0F3730",
 }
 
 Solarized.get_colors = function()
@@ -41,9 +51,9 @@ Solarized.get_colors = function()
       blue = Solarized.palette.blue,
       cyan = Solarized.palette.cyan,
       green = Solarized.palette.green,
-      red_bg = "#F6CABB",
-      yellow_bg = "#EDDEB1",
-      green_bg = "#E2E1B1",
+      red_bg = Solarized.palette.red_bg_lighter,
+      yellow_bg = Solarized.palette.yellow_bg_lighter,
+      green_bg = Solarized.palette.green_bg_lighter,
       string_delimiter = Solarized.palette.cyan_lighter,
       none = "NONE",
     },
@@ -62,9 +72,9 @@ Solarized.get_colors = function()
       blue = Solarized.palette.blue,
       cyan = Solarized.palette.cyan,
       green = Solarized.palette.green,
-      red_bg = "#312D34",
-      yellow_bg = "#344627",
-      green_bg = "#0F3730",
+      red_bg = Solarized.palette.red_bg_darker,
+      yellow_bg = Solarized.palette.yellow_bg_darker,
+      green_bg = Solarized.palette.green_bg_darker,
       string_delimiter = Solarized.palette.cyan_darker,
       none = "NONE",
     },
