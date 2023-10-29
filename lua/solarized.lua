@@ -1,25 +1,9 @@
 local utils = require("utils")
+local palette = require("palette")
 
 local Solarized = {}
 
-Solarized.palette = {
-  base03 = "#002b36",
-  base02 = "#073642",
-  base01 = "#586e75",
-  base00 = "#657b83",
-  base0 = "#839496",
-  base1 = "#93a1a1",
-  base2 = "#eee8d5",
-  base3 = "#fdf6e3",
-  yellow = "#b58900",
-  orange = "#cb4b16",
-  red = "#dc322f",
-  magenta = "#d33682",
-  violet = "#6c71c4",
-  blue = "#268bd2",
-  cyan = "#2aa198",
-  green = "#859900",
-}
+Solarized.palette = palette
 
 local mix_with_dark_bg = utils.mix_with(Solarized.palette.base03)
 local mix_with_light_bg = utils.mix_with(Solarized.palette.base3)
@@ -88,24 +72,21 @@ Solarized.get_colors = function()
   return colors[bg]
 end
 
-Solarized.toggle = function()
-  local bg = vim.o.background
-  if bg == "light" then
-    vim.o.background = "dark"
-  else
-    vim.o.background = "light"
-  end
-  Solarized.load()
-end
+local default_opts = {
+  transparency = false,
+}
 
-Solarized.load = function()
+Solarized.setup = function(opts)
+  vim.g.color_name = "solarized"
+
+  local config = vim.tbl_extend("force", default_opts, opts or {})
   local colors = Solarized.get_colors()
   local hi = vim.api.nvim_set_hl
 
   vim.g.colors_name = Solarized.name
   vim.cmd("highlight clear")
 
-  hi(0, "Normal", { fg = colors.fg0, bg = colors.bg0 })
+  hi(0, "Normal", { fg = colors.fg0, bg = config.transparency and colors.none or colors.bg0 })
   hi(0, "NormalNC", { fg = colors.fg0, bg = colors.bg0 })
   hi(0, "SignColumn", { fg = colors.fg1, bg = colors.bg0 })
   hi(0, "EndOfBuffer", { fg = colors.red })
@@ -338,12 +319,6 @@ Solarized.load = function()
   vim.g.terminal_color_15 = Solarized.palette.base3
   vim.g.terminal_color_background = colors.bg0
   vim.g.terminal_color_foreground = colors.fg0
-end
-
-Solarized.setup = function()
-  vim.g.color_name = "solarized"
-
-  Solarized.load()
 end
 
 return Solarized

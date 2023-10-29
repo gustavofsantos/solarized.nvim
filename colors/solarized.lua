@@ -1,1 +1,1 @@
-require("solarized").load()
+require("solarized").setup()
