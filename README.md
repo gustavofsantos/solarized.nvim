@@ -6,10 +6,17 @@ What's different in this one? Nothing, I think. It's just the Solarized theme
 forked from its original source (from Ethan's repo) with some customizations to
 make it more comfortable to me.
 
-## How to use it
+## Installation
 
-TBD
+Through lazy:
 
-## Extra
-
-TBD
+```lua
+{
+    "gustavofsantos/solarized.nvim",
+    priority = 1000,
+    opts = {},
+    config = function()
+      vim.cmd([[colorscheme solarized]])
+    end,
+}
+```
