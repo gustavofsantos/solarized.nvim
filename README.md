@@ -20,3 +20,7 @@ Through lazy:
     end,
 }
 ```
+
+## Screenshots
+
+Checkout the [wiki page](https://github.com/gustavofsantos/solarized.nvim/wiki/Screenshots)
