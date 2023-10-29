@@ -1,0 +1,3 @@
+;; extends
+
+["\""] @punctuation.string.delimiter
