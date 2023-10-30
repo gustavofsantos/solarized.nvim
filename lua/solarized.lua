@@ -21,6 +21,7 @@ Solarized.palette.cyan_darker = mix_with_dark_bg(Solarized.palette.cyan, 0.4)
 Solarized.palette.cyan_lighter = mix_with_light_bg(Solarized.palette.cyan, 0.4)
 Solarized.palette.green_bg_darker = mix_with_dark_bg(Solarized.palette.green, 0.85)
 Solarized.palette.green_bg_lighter = mix_with_light_bg(Solarized.palette.green, 0.7)
+Solarized.palette.dim_bg_dark = utils.mix(Solarized.palette.base03, Solarized.palette.base04, 0.5)
 
 Solarized.get_colors = function()
   local bg = vim.o.background
@@ -44,6 +45,7 @@ Solarized.get_colors = function()
       yellow_bg = Solarized.palette.yellow_bg_lighter,
       green_bg = Solarized.palette.green_bg_lighter,
       string_delimiter = Solarized.palette.cyan_lighter,
+      dim_bg0 = Solarized.palette.dim_bg_dark,
       none = "NONE",
     },
     dark = {
@@ -65,6 +67,7 @@ Solarized.get_colors = function()
       yellow_bg = Solarized.palette.yellow_bg_darker,
       green_bg = Solarized.palette.green_bg_darker,
       string_delimiter = Solarized.palette.cyan_darker,
+      dim_bg0 = Solarized.palette.base03,
       none = "NONE",
     },
   }
@@ -86,8 +89,9 @@ Solarized.setup = function(opts)
   vim.g.colors_name = Solarized.name
   vim.cmd("highlight clear")
 
-  hi(0, "Normal", { fg = colors.fg0, bg = config.transparency and colors.none or colors.bg0 })
-  hi(0, "NormalNC", { fg = colors.fg0, bg = colors.bg0 })
+  hi(0, "Normal", { fg = colors.fg0, bg = colors.bg0 })
+  hi(0, "NormalNC", { fg = colors.fg0, bg = colors.dim_bg0 })
+  hi(0, "NormalSB", { fg = colors.fg0, bg = colors.dim_bg0 })
   hi(0, "SignColumn", { fg = colors.fg1, bg = colors.bg0 })
   hi(0, "EndOfBuffer", { fg = colors.red })
   hi(0, "NormalFloat", { fg = colors.fg0, bg = colors.bg1 })
