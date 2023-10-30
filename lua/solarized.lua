@@ -75,14 +75,9 @@ Solarized.get_colors = function()
   return colors[bg]
 end
 
-local default_opts = {
-  transparency = false,
-}
-
-Solarized.setup = function(opts)
+Solarized.setup = function()
   vim.g.color_name = "solarized"
 
-  local config = vim.tbl_extend("force", default_opts, opts or {})
   local colors = Solarized.get_colors()
   local hi = vim.api.nvim_set_hl
 
