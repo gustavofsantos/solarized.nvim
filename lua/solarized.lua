@@ -21,7 +21,8 @@ Solarized.palette.cyan_darker = mix_with_dark_bg(Solarized.palette.cyan, 0.4)
 Solarized.palette.cyan_lighter = mix_with_light_bg(Solarized.palette.cyan, 0.4)
 Solarized.palette.green_bg_darker = mix_with_dark_bg(Solarized.palette.green, 0.85)
 Solarized.palette.green_bg_lighter = mix_with_light_bg(Solarized.palette.green, 0.7)
-Solarized.palette.dim_bg_dark = utils.mix(Solarized.palette.base03, Solarized.palette.base04, 0.5)
+Solarized.palette.dim_bg_dark = utils.mix(Solarized.palette.base03, Solarized.palette.base04, 0.25)
+Solarized.palette.dim_bg_light = utils.mix(Solarized.palette.base3, Solarized.palette.base00, 0.05)
 
 Solarized.get_colors = function()
   local bg = vim.o.background
@@ -45,7 +46,7 @@ Solarized.get_colors = function()
       yellow_bg = Solarized.palette.yellow_bg_lighter,
       green_bg = Solarized.palette.green_bg_lighter,
       string_delimiter = Solarized.palette.cyan_lighter,
-      dim_bg0 = Solarized.palette.dim_bg_dark,
+      dim_bg0 = Solarized.palette.dim_bg_light,
       none = "NONE",
     },
     dark = {
@@ -67,7 +68,7 @@ Solarized.get_colors = function()
       yellow_bg = Solarized.palette.yellow_bg_darker,
       green_bg = Solarized.palette.green_bg_darker,
       string_delimiter = Solarized.palette.cyan_darker,
-      dim_bg0 = Solarized.palette.base03,
+      dim_bg0 = Solarized.palette.dim_bg_dark,
       none = "NONE",
     },
   }
