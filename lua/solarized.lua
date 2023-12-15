@@ -5,22 +5,9 @@ local Solarized = {}
 
 Solarized.palette = palette
 
-local mix_with_dark_bg = utils.mix_with(Solarized.palette.base03)
-local mix_with_light_bg = utils.mix_with(Solarized.palette.base3)
-
 -- extra base colors
 Solarized.palette.base04 = "#001217"
 Solarized.palette.base4 = "#fdf6e3"
-
--- extra offset colors
-Solarized.palette.yellow_bg_darker = mix_with_dark_bg(Solarized.palette.yellow, 0.7)
-Solarized.palette.yellow_bg_lighter = mix_with_light_bg(Solarized.palette.yellow, 0.7)
-Solarized.palette.red_bg_darker = mix_with_dark_bg(Solarized.palette.red, 0.8)
-Solarized.palette.red_bg_lighter = mix_with_light_bg(Solarized.palette.red, 0.7)
-Solarized.palette.cyan_darker = mix_with_dark_bg(Solarized.palette.cyan, 0.4)
-Solarized.palette.cyan_lighter = mix_with_light_bg(Solarized.palette.cyan, 0.4)
-Solarized.palette.green_bg_darker = mix_with_dark_bg(Solarized.palette.green, 0.85)
-Solarized.palette.green_bg_lighter = mix_with_light_bg(Solarized.palette.green, 0.7)
 Solarized.palette.dim_bg_dark = utils.mix(Solarized.palette.base03, Solarized.palette.base04, 0.25)
 Solarized.palette.dim_bg_light = utils.mix(Solarized.palette.base3, Solarized.palette.base00, 0.05)
 
@@ -42,9 +29,9 @@ Solarized.get_colors = function()
       blue = Solarized.palette.blue,
       cyan = Solarized.palette.cyan,
       green = Solarized.palette.green,
-      red_bg = Solarized.palette.red_bg_lighter,
-      yellow_bg = Solarized.palette.yellow_bg_lighter,
-      green_bg = Solarized.palette.green_bg_lighter,
+      red_bg = Solarized.palette.red_lighter,
+      yellow_bg = Solarized.palette.yellow_lighter,
+      green_bg = Solarized.palette.green_lighter,
       string_delimiter = Solarized.palette.cyan_lighter,
       dim_bg0 = Solarized.palette.dim_bg_light,
       none = "NONE",
@@ -64,9 +51,9 @@ Solarized.get_colors = function()
       blue = Solarized.palette.blue,
       cyan = Solarized.palette.cyan,
       green = Solarized.palette.green,
-      red_bg = Solarized.palette.red_bg_darker,
-      yellow_bg = Solarized.palette.yellow_bg_darker,
-      green_bg = Solarized.palette.green_bg_darker,
+      red_bg = Solarized.palette.red_darker,
+      yellow_bg = Solarized.palette.yellow_darker,
+      green_bg = Solarized.palette.green_darker,
       string_delimiter = Solarized.palette.cyan_darker,
       dim_bg0 = Solarized.palette.dim_bg_dark,
       none = "NONE",
@@ -116,7 +103,7 @@ Solarized.setup = function()
   hi(0, "MoreMsg", { fg = colors.cyan, bold = true })
   hi(0, "NonText", { fg = colors.fg1 })
   hi(0, "Pmenu", { fg = colors.fg0, bg = colors.bg1 })
-  hi(0, "PmenuSel", { bg = colors.yellow_bg })
+  hi(0, "PmenuSel", { fg = colors.bg0, bg = colors.yellow })
   hi(0, "PmenuSbar", { fg = colors.fg0, bg = colors.bg1 })
   hi(0, "PmenuThumb", { fg = colors.fg0, bg = colors.bg1 })
   hi(0, "Question", { fg = colors.cyan, bold = true })
@@ -295,9 +282,6 @@ Solarized.setup = function()
   hi(0, "@include.javascript", { fg = colors.fg1, italic = true })
   hi(0, "@include.source.javascript", { fg = colors.fg0, italic = true })
   hi(0, "@include.identifier.javascript", { fg = colors.fg3, italic = false })
-
-  -- Semantic tokens
-  hi(0, "@lsp.type.property", { italic = true })
 
   -- Language related
   hi(0, "rubyStringDelimiter", { link = "@punctuation.string.delimiter" })
