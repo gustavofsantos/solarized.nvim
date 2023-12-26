@@ -1,5 +1,5 @@
-local utils = require("utils")
-local palette = require("palette")
+local utils = require("solarized.utils")
+local palette = require("solarized.palette")
 
 local Solarized = {}
 
