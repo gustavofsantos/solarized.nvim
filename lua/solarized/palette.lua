@@ -1,4 +1,5 @@
 local palette = {
+  base04 = "#001217",
   base03 = "#002b36",
   base02 = "#073642",
   base01 = "#586e75",
@@ -7,6 +8,7 @@ local palette = {
   base1 = "#93a1a1",
   base2 = "#eee8d5",
   base3 = "#fdf6e3",
+  base4 = "#ffffff",
 
   yellow_darker = "#485120",
   yellow_dark = "#91760b",

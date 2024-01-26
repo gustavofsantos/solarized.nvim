@@ -6,8 +6,6 @@ local Solarized = {}
 Solarized.palette = palette
 
 -- extra base colors
-Solarized.palette.base04 = "#001217"
-Solarized.palette.base4 = "#fdf6e3"
 Solarized.palette.dim_bg_dark = utils.mix(Solarized.palette.base03, Solarized.palette.base04, 0.25)
 Solarized.palette.dim_bg_light = utils.mix(Solarized.palette.base3, Solarized.palette.base00, 0.05)
 
@@ -53,6 +51,8 @@ Solarized.get_colors = function()
       diff_add_bg = Solarized.palette.green_lighter,
       diff_delete_fg = Solarized.palette.red_darker,
       diff_delete_bg = Solarized.palette.red_lighter,
+
+      statusline_bg = Solarized.palette.base3,
 
       -- semantic tokens
       operator = Solarized.palette.base01,
@@ -105,6 +105,8 @@ Solarized.get_colors = function()
       diff_add_bg = Solarized.palette.green_darker,
       diff_delete_fg = Solarized.palette.red_lighter,
       diff_delete_bg = Solarized.palette.red_darker,
+
+      statusline_bg = Solarized.palette.base04,
 
       -- semantic tokens
       operator = Solarized.palette.base1,
@@ -175,14 +177,14 @@ Solarized.setup = function()
   hi(0, "SpellCap", { fg = colors.blue, bg = colors.none, italic = true, undercurl = true })
   hi(0, "SpellLocal", { fg = colors.cyan, bg = colors.none, italic = true, undercurl = true })
   hi(0, "SpellRare", { fg = colors.cyan, bg = colors.none, italic = true, undercurl = true })
-  hi(0, "StatusLine", { fg = colors.bg0, bg = colors.fg0 })
+  hi(0, "StatusLine", { fg = colors.bg0, bg = colors.statusline_bg })
   hi(0, "StatusLineNC", { fg = colors.fg1, bg = colors.bg1 })
   hi(0, "StatusLineTerm", { fg = colors.bg0, bg = colors.fg0 })
   hi(0, "StatusLineTermNC", { fg = colors.fg1, bg = colors.bg1 })
   hi(0, "TabLineFill", { fg = colors.bg1, bg = colors.fg1 })
   hi(0, "TablineSel", { fg = colors.fg0, bg = colors.bg0 })
   hi(0, "Tabline", { fg = colors.bg1, bg = colors.fg1 })
-  hi(0, "Title", { fg = colors.orange, bg = colors.none, bold = true })
+  hi(0, "Title", { fg = colors.fg0, bg = colors.none, bold = true })
   hi(0, "Visual", { fg = colors.bg0, bg = colors.fg0 })
   hi(0, "VisualNOS", { fg = colors.bg0, bg = colors.fg1 })
   hi(0, "WarningMsg", { fg = colors.red, bg = colors.bg1, bold = true })
@@ -244,12 +246,16 @@ Solarized.setup = function()
   hi(0, "TelescopePromptBorder", { fg = colors.bg1, bg = colors.bg1 })
   hi(0, "TelescopePromptPrefix", { fg = colors.fg0, bg = colors.bg1 })
   hi(0, "TelescopePromptTitle", { fg = colors.fg0, bg = colors.bg1 })
-  hi(0, "TelescopeSelection", { bg = colors.base03 })
-  hi(0, "TelescopeSelectionCaret", { fg = colors.yellow, bg = colors.yellow_bg })
+  hi(0, "TelescopeSelection", { bg = colors.bg0 })
+  hi(0, "TelescopeSelectionCaret", { fg = colors.fg0 })
   hi(0, "TelescopeResultsTitle", { fg = colors.fg3, bg = colors.bg1 })
   hi(0, "TelescopeResultsBorder", { fg = colors.bg1, bg = colors.bg1 })
   hi(0, "TelescopePreviewBorder", { fg = colors.fg1, bg = colors.bg1 })
   hi(0, "TelescopePreviewTitle", { fg = colors.fg1, bg = colors.bg1 })
+
+  -- Incline
+  hi(0, "InclineNormal", { fg = colors.bg0, bg = colors.green })
+  hi(0, "InclineNormalNC", { fg = colors.fg1, bg = colors.bg2 })
 
   -- Fidget
   hi(0, "FidgetTitle", { link = "Title" })
@@ -266,11 +272,7 @@ Solarized.setup = function()
   hi(0, "DiagnosticUnderlineHint", { fg = colors.fg3, undercurl = true, sp = colors.cyan })
   hi(0, "DiagnosticVirtualTextError", { fg = colors.error_fg, bg = colors.error_bg, blend = 50 })
   hi(0, "DiagnosticVirtualTextInfo", { fg = colors.info_fg, bg = colors.info_bg, undercurl = false, sp = colors.blue })
-  hi(
-    0,
-    "DiagnosticVirtualTextWarn",
-    { fg = colors.yellow, bg = colors.yellow_bg, undercurl = true, sp = colors.yellow }
-  )
+  hi(0, "DiagnosticVirtualTextWarn", { fg = colors.warning_fg, bg = colors.warning_bg, sp = colors.yellow })
   hi(0, "DiagnosticVirtualTextHint", { fg = colors.hint_fg, bg = colors.hint_bg, sp = colors.cyan })
 
   -- GitSigns
