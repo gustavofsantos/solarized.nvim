@@ -21,6 +21,7 @@ Solarized.get_colors = function()
       fg0 = Solarized.palette.base00, -- primary content
       fg1 = Solarized.palette.base1, -- comments/secondary content
       fg3 = Solarized.palette.base01, -- emphasis
+
       yellow = Solarized.palette.yellow,
       orange = Solarized.palette.orange,
       red = Solarized.palette.red,
@@ -29,12 +30,41 @@ Solarized.get_colors = function()
       blue = Solarized.palette.blue,
       cyan = Solarized.palette.cyan,
       green = Solarized.palette.green,
+
       red_bg = Solarized.palette.red_lighter,
       yellow_bg = Solarized.palette.yellow_lighter,
       green_bg = Solarized.palette.green_lighter,
       string_delimiter = Solarized.palette.cyan_lighter,
       dim_bg0 = Solarized.palette.dim_bg_light,
       none = "NONE",
+
+      info_fg = Solarized.palette.blue_darker,
+      info_bg = Solarized.palette.blue_lighter,
+      hint_fg = Solarized.palette.cyan_darker,
+      hint_bg = Solarized.palette.cyan_lighter,
+      warning_fg = Solarized.palette.yellow_darker,
+      warning_bg = Solarized.palette.yellow_lighter,
+      error_fg = Solarized.palette.red_darker,
+      error_bg = Solarized.palette.red_lighter,
+
+      diff_change_fg = Solarized.palette.blue_darker,
+      diff_change_bg = Solarized.palette.blue_lighter,
+      diff_add_fg = Solarized.palette.green_darker,
+      diff_add_bg = Solarized.palette.green_lighter,
+      diff_delete_fg = Solarized.palette.red_darker,
+      diff_delete_bg = Solarized.palette.red_lighter,
+
+      -- semantic tokens
+      operator = Solarized.palette.base01,
+      variable = Solarized.palette.base00,
+      field = Solarized.palette.base01,
+      keyword = Solarized.palette.green,
+      string = Solarized.palette.cyan,
+      number = Solarized.palette.cyan,
+      boolean = Solarized.palette.orange,
+      comment = Solarized.palette.base1,
+      type = Solarized.palette.yellow,
+      tag = Solarized.palette.blue_dark,
     },
     dark = {
       bg0 = Solarized.palette.base03,
@@ -43,6 +73,7 @@ Solarized.get_colors = function()
       fg0 = Solarized.palette.base0,
       fg1 = Solarized.palette.base01,
       fg3 = Solarized.palette.base1,
+
       yellow = Solarized.palette.yellow,
       orange = Solarized.palette.orange,
       red = Solarized.palette.red,
@@ -51,12 +82,41 @@ Solarized.get_colors = function()
       blue = Solarized.palette.blue,
       cyan = Solarized.palette.cyan,
       green = Solarized.palette.green,
+
       red_bg = Solarized.palette.red_darker,
       yellow_bg = Solarized.palette.yellow_darker,
       green_bg = Solarized.palette.green_darker,
       string_delimiter = Solarized.palette.cyan_darker,
       dim_bg0 = Solarized.palette.dim_bg_dark,
       none = "NONE",
+
+      info_fg = Solarized.palette.blue_lighter,
+      info_bg = Solarized.palette.blue_darker,
+      hint_fg = Solarized.palette.cyan_lighter,
+      hint_bg = Solarized.palette.cyan_darker,
+      warning_fg = Solarized.palette.yellow_lighter,
+      warning_bg = Solarized.palette.yellow_darker,
+      error_fg = Solarized.palette.red_lighter,
+      error_bg = Solarized.palette.red_darker,
+
+      diff_change_fg = Solarized.palette.blue_lighter,
+      diff_change_bg = Solarized.palette.blue_darker,
+      diff_add_fg = Solarized.palette.green_lighter,
+      diff_add_bg = Solarized.palette.green_darker,
+      diff_delete_fg = Solarized.palette.red_lighter,
+      diff_delete_bg = Solarized.palette.red_darker,
+
+      -- semantic tokens
+      operator = Solarized.palette.base1,
+      variable = Solarized.palette.base0,
+      field = Solarized.palette.base1,
+      keyword = Solarized.palette.green,
+      string = Solarized.palette.cyan,
+      number = Solarized.palette.cyan,
+      boolean = Solarized.palette.orange,
+      comment = Solarized.palette.base01,
+      type = Solarized.palette.yellow,
+      tag = Solarized.palette.blue_light,
     },
   }
 
@@ -94,7 +154,7 @@ Solarized.setup = function()
   hi(0, "DiffChange", { fg = colors.yellow, bg = colors.yellow_bg })
   hi(0, "DiffDelete", { fg = colors.red, bg = colors.red_bg })
   hi(0, "DiffText", { fg = colors.blue, bg = colors.none })
-  hi(0, "ErrorMsg", { fg = colors.red, bg = colors.red_bg })
+  hi(0, "ErrorMsg", { fg = colors.error_fg, bg = colors.error_bg })
   hi(0, "Folded", { fg = colors.fg0, bg = colors.bg1, italic = true })
   hi(0, "FoldColumn", { fg = colors.fg0, bg = colors.bg1 })
   hi(0, "IncSearch", { fg = colors.yellow, bg = colors.yellow_bg })
@@ -139,28 +199,28 @@ Solarized.setup = function()
   hi(0, "Warnings", { fg = colors.yellow })
 
   -- Syntax highlighting
-  hi(0, "Type", { fg = colors.yellow })
-  hi(0, "Typedef", { fg = colors.yellow })
-  hi(0, "StorageClass", { fg = colors.yellow })
-  hi(0, "Structure", { fg = colors.yellow })
+  hi(0, "Type", { fg = colors.type })
+  hi(0, "Typedef", { fg = colors.type })
+  hi(0, "StorageClass", { fg = colors.type })
+  hi(0, "Structure", { fg = colors.type })
   hi(0, "Constant", { fg = colors.cyan })
-  hi(0, "String", { fg = colors.cyan })
+  hi(0, "String", { fg = colors.string })
   hi(0, "Character", { fg = colors.cyan })
-  hi(0, "Number", { fg = colors.cyan })
-  hi(0, "Boolean", { fg = colors.cyan, bold = true })
-  hi(0, "Float", { fg = colors.cyan })
+  hi(0, "Number", { fg = colors.number })
+  hi(0, "Boolean", { fg = colors.boolean, bold = true })
+  hi(0, "Float", { fg = colors.number })
   hi(0, "StringDelimiter", { fg = colors.green })
-  hi(0, "Comment", { fg = colors.fg1, italic = true })
+  hi(0, "Comment", { fg = colors.comment, italic = true })
   hi(0, "Delimiter", { fg = colors.fg1 })
-  hi(0, "Identifier", { fg = colors.fg0, bg = colors.none })
+  hi(0, "Identifier", { fg = colors.variable })
   hi(0, "Function", { fg = colors.blue, italic = true })
-  hi(0, "Statement", { fg = colors.green })
-  hi(0, "Conditional", { fg = colors.green })
-  hi(0, "Repeat", { fg = colors.green })
-  hi(0, "Label", { fg = colors.green })
+  hi(0, "Statement", { fg = colors.keyword })
+  hi(0, "Conditional", { fg = colors.keyword })
+  hi(0, "Repeat", { fg = colors.keyword })
+  hi(0, "Label", { fg = colors.keyword, italic = true })
   hi(0, "Operator", { fg = colors.fg3 })
-  hi(0, "Keyword", { fg = colors.green, italic = true })
-  hi(0, "Exception", { fg = colors.green })
+  hi(0, "Keyword", { fg = colors.keyword, italic = true })
+  hi(0, "Exception", { fg = colors.keyword })
   hi(0, "PreProc", { fg = colors.orange })
   hi(0, "Include", { fg = colors.orange, italic = true })
   hi(0, "Define", { fg = colors.orange })
@@ -184,7 +244,7 @@ Solarized.setup = function()
   hi(0, "TelescopePromptBorder", { fg = colors.bg1, bg = colors.bg1 })
   hi(0, "TelescopePromptPrefix", { fg = colors.fg0, bg = colors.bg1 })
   hi(0, "TelescopePromptTitle", { fg = colors.fg0, bg = colors.bg1 })
-  hi(0, "TelescopeSelection", { bg = colors.yellow_bg })
+  hi(0, "TelescopeSelection", { bg = colors.base03 })
   hi(0, "TelescopeSelectionCaret", { fg = colors.yellow, bg = colors.yellow_bg })
   hi(0, "TelescopeResultsTitle", { fg = colors.fg3, bg = colors.bg1 })
   hi(0, "TelescopeResultsBorder", { fg = colors.bg1, bg = colors.bg1 })
@@ -204,14 +264,14 @@ Solarized.setup = function()
   hi(0, "DiagnosticUnderlineWarn", { fg = colors.yellow, undercurl = true, sp = colors.yellow })
   hi(0, "DiagnosticUnderlineInfo", { fg = colors.blue, undercurl = true, sp = colors.blue })
   hi(0, "DiagnosticUnderlineHint", { fg = colors.fg3, undercurl = true, sp = colors.cyan })
-  hi(0, "DiagnosticVirtualTextError", { fg = colors.red, bg = colors.red_bg, blend = 50 })
-  hi(0, "DiagnosticVirtualTextInfo", { fg = colors.blue, undercurl = true, sp = colors.blue })
+  hi(0, "DiagnosticVirtualTextError", { fg = colors.error_fg, bg = colors.error_bg, blend = 50 })
+  hi(0, "DiagnosticVirtualTextInfo", { fg = colors.info_fg, bg = colors.info_bg, undercurl = false, sp = colors.blue })
   hi(
     0,
     "DiagnosticVirtualTextWarn",
     { fg = colors.yellow, bg = colors.yellow_bg, undercurl = true, sp = colors.yellow }
   )
-  hi(0, "DiagnosticVirtualTextHint", { fg = colors.fg3, undercurl = true, sp = colors.cyan })
+  hi(0, "DiagnosticVirtualTextHint", { fg = colors.hint_fg, bg = colors.hint_bg, sp = colors.cyan })
 
   -- GitSigns
   hi(0, "GitSignsAdd", { fg = colors.green })
@@ -232,9 +292,9 @@ Solarized.setup = function()
   hi(0, "FlashCursor", { fg = colors.bg0, bg = colors.yellow })
 
   -- Fugitive
-  hi(0, "diffAdded", { fg = colors.green, bg = colors.green_bg })
-  hi(0, "diffRemoved", { fg = colors.red, bg = colors.red_bg })
-  hi(0, "diffChanged", { fg = colors.yellow, bg = colors.yellow_bg })
+  hi(0, "diffAdded", { fg = colors.diff_add_fg, bg = colors.diff_add_bg })
+  hi(0, "diffRemoved", { fg = colors.diff_delete_fg, bg = colors.diff_delete_bg })
+  hi(0, "diffChanged", { fg = colors.diff_change_fg, bg = colors.diff_change_bg })
 
   -- LSP
   hi(0, "LspReferenceRead", { fg = colors.yellow, bold = true })
@@ -274,14 +334,35 @@ Solarized.setup = function()
   hi(0, "CmpItemKindSnippet", { fg = colors.orange })
 
   -- Treesitter
-  hi(0, "@tag", { fg = colors.blue, bold = true })
+  hi(0, "@tag", { fg = colors.tag, bold = true })
   hi(0, "@tag.attribute", { fg = colors.fg0, italic = true })
   hi(0, "@tag.delimiter", { fg = colors.fg1 })
+  hi(0, "@variable", { fg = colors.variable })
+  hi(0, "@field", { fg = colors.field, italic = true })
+  hi(0, "@function", { fg = colors.blue })
+  hi(0, "@function.call", { fg = colors.blue, italic = true })
   hi(0, "@constructor", { fg = colors.blue })
   hi(0, "@punctuation.string.delimiter", { fg = colors.string_delimiter, bg = colors.none, nocombine = true })
   hi(0, "@include.javascript", { fg = colors.fg1, italic = true })
   hi(0, "@include.source.javascript", { fg = colors.fg0, italic = true })
   hi(0, "@include.identifier.javascript", { fg = colors.fg3, italic = false })
+  hi(0, "@include.typescript", { link = "@include.javascript" })
+  hi(0, "@include.source.typescript", { link = "@include.source.javascript" })
+  hi(0, "@include.identifier.typescript", { link = "@include.identifier.javascript" })
+  hi(0, "@include.typescriptreact", { link = "@include.javascript" })
+  hi(0, "@include.source.typescriptreact", { link = "@include.source.javascript" })
+  hi(0, "@include.identifier.typescriptreact", { link = "@include.identifier.javascript" })
+  hi(0, "@include.tsx", { link = "@include.javascript" })
+  hi(0, "@include.source.tsx", { link = "@include.source.javascript" })
+  hi(0, "@include.identifier.tsx", { link = "@include.identifier.javascript" })
+
+  hi(0, "@keyword.jsdoc", { fg = colors.green, italic = false })
+  hi(0, "@type.jsdoc", { fg = colors.yellow, bold = true })
+
+  -- LSP
+  hi(0, "@lsp.type.parameter", { link = "@variable" })
+  hi(0, "@lsp.type.variable", { link = "@variable" })
+  hi(0, "@lsp.type.property", { link = "@field" })
 
   -- Language related
   hi(0, "rubyStringDelimiter", { link = "@punctuation.string.delimiter" })
