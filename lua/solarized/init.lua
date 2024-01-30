@@ -53,8 +53,8 @@ Solarized.get_colors = function()
       diff_delete_fg = Solarized.palette.red_darker,
       diff_delete_bg = Solarized.palette.red_lighter,
 
-      statusline_bg = Solarized.palette.base3,
-      statusline_fg = Solarized.palette.base00,
+      statusline_bg = Solarized.palette.base01,
+      statusline_fg = Solarized.palette.base2,
       statusline_bg_nc = Solarized.palette.dim_bg_light,
       statusline_fg_nc = Solarized.palette.base00,
 
