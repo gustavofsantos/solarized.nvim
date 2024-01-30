@@ -15,7 +15,7 @@ Solarized.get_colors = function()
     light = {
       bg0 = Solarized.palette.base3, -- background
       bg1 = Solarized.palette.base2, -- background highlights
-      bg2 = Solarized.palette.base4,
+      bg2 = Solarized.palette.base3,
       fg0 = Solarized.palette.base00, -- primary content
       fg1 = Solarized.palette.base1, -- comments/secondary content
       fg3 = Solarized.palette.base01, -- emphasis
@@ -33,7 +33,7 @@ Solarized.get_colors = function()
       yellow_bg = Solarized.palette.yellow_lighter,
       green_bg = Solarized.palette.green_lighter,
       blue_bg = Solarized.palette.blue_lighter,
-      string_delimiter = Solarized.palette.cyan_lighter,
+      string_delimiter = Solarized.palette.cyan_light,
       dim_bg0 = Solarized.palette.dim_bg_light,
       none = "NONE",
 
@@ -54,6 +54,9 @@ Solarized.get_colors = function()
       diff_delete_bg = Solarized.palette.red_lighter,
 
       statusline_bg = Solarized.palette.base3,
+      statusline_fg = Solarized.palette.base00,
+      statusline_bg_nc = Solarized.palette.dim_bg_light,
+      statusline_fg_nc = Solarized.palette.base00,
 
       -- semantic tokens
       operator = Solarized.palette.base01,
@@ -109,7 +112,10 @@ Solarized.get_colors = function()
       diff_delete_fg = Solarized.palette.red_lighter,
       diff_delete_bg = Solarized.palette.red_darker,
 
-      statusline_bg = Solarized.palette.base04,
+      statusline_bg = Solarized.palette.base1,
+      statusline_fg = Solarized.palette.base03,
+      statusline_bg_nc = Solarized.palette.dim_bg_dark,
+      statusline_fg_nc = Solarized.palette.base0,
 
       -- semantic tokens
       operator = Solarized.palette.base1,
@@ -181,10 +187,10 @@ Solarized.setup = function()
   hi(0, "SpellCap", { fg = colors.blue, bg = colors.none, italic = true, undercurl = true })
   hi(0, "SpellLocal", { fg = colors.cyan, bg = colors.none, italic = true, undercurl = true })
   hi(0, "SpellRare", { fg = colors.cyan, bg = colors.none, italic = true, undercurl = true })
-  hi(0, "StatusLine", { fg = colors.bg0, bg = colors.statusline_bg })
-  hi(0, "StatusLineNC", { fg = colors.fg1, bg = colors.bg1 })
-  hi(0, "StatusLineTerm", { fg = colors.bg0, bg = colors.fg0 })
-  hi(0, "StatusLineTermNC", { fg = colors.fg1, bg = colors.bg1 })
+  hi(0, "StatusLine", { fg = colors.statusline_fg, bg = colors.statusline_bg })
+  hi(0, "StatusLineNC", { fg = colors.statusline_fg_nc, bg = colors.statusline_bg_nc })
+  hi(0, "StatusLineTerm", { fg = colors.statusline_fg, bg = colors.statusline_bg })
+  hi(0, "StatusLineTermNC", { fg = colors.statusline_fg_nc, bg = colors.statusline_bg_nc })
   hi(0, "TabLineFill", { fg = colors.bg1, bg = colors.fg1 })
   hi(0, "TablineSel", { fg = colors.fg0, bg = colors.bg0 })
   hi(0, "Tabline", { fg = colors.bg1, bg = colors.fg1 })
